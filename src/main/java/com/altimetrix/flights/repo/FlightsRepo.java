@@ -2,11 +2,10 @@ package com.altimetrix.flights.repo;
 
 import java.util.List;
 
-import com.altimetrix.flights.entity.Results;
-import com.altimetrix.flights.model.FlightsRequestInformation;
+import com.altimetrix.flights.model.Results;
 
 public interface FlightsRepo {
 
-	List<Results> getFlights(FlightsRequestInformation flightsRequestInformation);
+	List<Results> getFlights(String fromCity, String toCity, String startDate, String returnDate);
 
 }

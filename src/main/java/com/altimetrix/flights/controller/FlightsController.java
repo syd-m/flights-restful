@@ -2,40 +2,29 @@ package com.altimetrix.flights.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.altimetrix.flights.entity.Results;
-import com.altimetrix.flights.model.FlightsRequestInformation;
+import com.altimetrix.flights.model.Results;
+import com.altimetrix.flights.repo.FlightsRepo;
 import com.altimetrix.flights.service.FlightsService;
 
-@RestController
+@RestController("/flights")
 public class FlightsController {
+	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(FlightsController.class);
 
 	@Autowired
 	private FlightsService flightsService;
 
-	@PostMapping("/flights/getFlightsInformation")
-	public ResponseEntity<List<Results>> getFlightInformation(@RequestBody FlightsRequestInformation flightsRequest) {
+	@Autowired
+	FlightsRepo flightsRepo;
 
-		// Results should include Fastest, Cheapest, and Most comfortable
-
-		// TODO getting cheapest and fastest flights
-		return new ResponseEntity<>(flightsService.getCheapestAndFastestFlights(flightsRequest), HttpStatus.OK);
-
-		// TODO call the Most Comfortable service
-
-		// return null;
-
-	}
-
-	@GetMapping("/")
-	public String test() {
-		return "hey";
+	@GetMapping("/getFlights")
+	public List<Results> getFlightInformation(String fromCity, String toCity, String startDate, String returnDate) {
+		LOGGER.info("Controller called...");
+		return flightsService.getCheapestAndFastestFlights(fromCity, toCity, startDate, returnDate);
+		// return flightsRepo.getFlights(fromCity, toCity, startDate, returnDate);
 	}
 }

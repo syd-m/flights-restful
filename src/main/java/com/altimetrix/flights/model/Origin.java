@@ -1,4 +1,4 @@
-package com.altimetrix.flights.entity;
+package com.altimetrix.flights.model;
 
 public class Origin {
 	private String airport;

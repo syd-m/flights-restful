@@ -1,6 +1,9 @@
 package com.altimetrix.flights.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PricePerAdult {
+	@JsonProperty("total_fare")
 	private String totalFare;
 	private String tax;
 

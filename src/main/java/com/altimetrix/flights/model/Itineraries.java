@@ -2,9 +2,18 @@ package com.altimetrix.flights.model;
 
 public class Itineraries {
 	private Outbound outbound;
+	private Inbound inbound;
+
+	public Inbound getInbound() {
+		return inbound;
+	}
 
 	public Outbound getOutbound() {
 		return outbound;
+	}
+
+	public void setInbound(Inbound inbound) {
+		this.inbound = inbound;
 	}
 
 	public void setOutbound(Outbound outbound) {
@@ -13,6 +22,6 @@ public class Itineraries {
 
 	@Override
 	public String toString() {
-		return "Itineraries [outbound=" + outbound + "]";
+		return "Itineraries [outbound=" + outbound + ", inbound=" + inbound + "]";
 	}
 }

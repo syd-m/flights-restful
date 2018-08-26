@@ -1,14 +1,22 @@
 package com.altimetrix.flights.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Flights {
+	@JsonProperty("departs_at")
 	private String departsAt;
+	@JsonProperty("arrives_at")
 	private String arrivesAt;
 	private Origin origin;
 	private Destination destination;
+	@JsonProperty("marketing_airline")
 	private String marketingAirline;
+	@JsonProperty("operating_airline")
 	private String operatingAirline;
+	@JsonProperty("flight_number")
 	private String flightNumber;
 	private String aircraft;
+	@JsonProperty("booking_info")
 	private BookingInfo bookingInfo;
 
 	public String getAircraft() {

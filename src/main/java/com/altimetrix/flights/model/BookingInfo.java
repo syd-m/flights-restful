@@ -1,8 +1,13 @@
 package com.altimetrix.flights.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BookingInfo {
+	@JsonProperty("travel_class")
 	private String travelClass;
+	@JsonProperty("booking_code")
 	private String bookingCode;
+	@JsonProperty("seats_remaining")
 	private String seatsRemaining;
 
 	public String getTravelClass() {

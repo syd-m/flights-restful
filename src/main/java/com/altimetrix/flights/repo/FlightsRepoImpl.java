@@ -21,9 +21,9 @@ public class FlightsRepoImpl implements FlightsRepo {
 	@Override
 	public List<Results> getFlights(String fromCity, String toCity, String startDate, String returnDate) {
 		String URI = lowestFareAndFlightsInformation + "&origin=" + fromCity + "&destination=" + toCity
-				+ "&departure_date=" + startDate + "&return_date=" + startDate;
+				+ "&departure_date=" + startDate + "&return_date=" + returnDate;
+		System.out.println("********************************" + URI);
 		ResponseEntity<Response> response = restTemplate.getForEntity(URI, Response.class);
-		LOGGER.info("");
 		List<Results> cheapestFlightResults = response.getBody().getResults();
 		LOGGER.info("Total results fetched for lowest fare flights: [{}]", cheapestFlightResults.size());
 		LOGGER.info("Flights with lowest fare: [{}]", cheapestFlightResults.toString());

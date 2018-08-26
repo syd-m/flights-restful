@@ -1,7 +1,10 @@
 package com.altimetrix.flights.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Restrictions {
 	private String refundable;
+	@JsonProperty("change_penalties")
 	private String changePenalties;
 
 	public String getRefundable() {
